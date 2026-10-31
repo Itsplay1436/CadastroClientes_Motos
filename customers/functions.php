@@ -15,12 +15,65 @@ function formatadata($data, $formato)
 }
 
 /**
- *  Função para formatar os telefones
+ * Formata CPF ou CNPJ
  */
-function telefone($tel)
+function formatacpfcnpj($valor)
 {
-    return "(" . substr($tel, 0, 2) . ")" . substr($tel, 2, 5)
-        . "-" . substr($tel, 7, 4);
+    $valor = preg_replace('/[^0-9]/', '', $valor);
+
+    if (strlen($valor) == 11) {
+        return substr($valor, 0, 3) . '.' .
+               substr($valor, 3, 3) . '.' .
+               substr($valor, 6, 3) . '-' .
+               substr($valor, 9, 2);
+    }
+
+    if (strlen($valor) == 14) {
+        return substr($valor, 0, 2) . '.' .
+               substr($valor, 2, 3) . '.' .
+               substr($valor, 5, 3) . '/' .
+               substr($valor, 8, 4) . '-' .
+               substr($valor, 12, 2);
+    }
+
+    return $valor;
+}
+
+/**
+ * Formata telefone ou celular
+ */
+function formatatelefone($valor)
+{
+    $valor = preg_replace('/[^0-9]/', '', $valor);
+
+    if (strlen($valor) == 10) {
+        return '(' . substr($valor, 0, 2) . ') ' .
+               substr($valor, 2, 4) . '-' .
+               substr($valor, 6, 4);
+    }
+
+    if (strlen($valor) == 11) {
+        return '(' . substr($valor, 0, 2) . ') ' .
+               substr($valor, 2, 5) . '-' .
+               substr($valor, 7, 4);
+    }
+
+    return $valor;
+}
+
+/**
+ * Formata CEP
+ */
+function formatacep($valor)
+{
+    $valor = preg_replace('/[^0-9]/', '', $valor);
+
+    if (strlen($valor) == 8) {
+        return substr($valor, 0, 5) . '-' .
+               substr($valor, 5, 3);
+    }
+
+    return $valor;
 }
 
 /**

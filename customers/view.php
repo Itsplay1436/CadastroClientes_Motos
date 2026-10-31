@@ -18,7 +18,7 @@ include HEADER_TEMPLATE;
     <dd><?php echo $customer['name']; ?></dd>
 
     <dt>CPF / CNPJ:</dt>
-    <dd><?php echo $customer['cpf_cnpj']; ?></dd>
+    <dd><?php echo formatacpfcnpj($customer['cpf_cnpj']); ?></dd>
 
     <dt>Data de Nascimento:</dt>
     <dd><?php echo formatadata($customer['birthdate'], "d/m/Y"); ?></dd>
@@ -32,7 +32,7 @@ include HEADER_TEMPLATE;
     <dd><?php echo $customer['hood']; ?></dd>
 
     <dt>CEP:</dt>
-    <dd><?php echo $customer['zip_code']; ?></dd>
+    <dd><?php echo formatacep($customer['zip_code']); ?></dd>
 
     <dt>Data de Cadastro:</dt>
     <dd><?php echo formatadata($customer['created'], "d/m/Y - H:i:s"); ?></dd>
@@ -46,10 +46,10 @@ include HEADER_TEMPLATE;
     <dd><?php echo $customer['city']; ?></dd>
 
     <dt>Telefone:</dt>
-    <dd><?= $customer['phone']; ?></dd>
+    <dd><?php echo formatatelefone($customer['phone']); ?></dd>
 
     <dt>Celular:</dt>
-    <dd><?php echo $customer['mobile']; ?></dd>
+    <dd><?php echo formatatelefone($customer['mobile']); ?></dd>
 
     <dt>Inscrição Estadual:</dt>
     <dd><?php echo $customer['ie']; ?></dd>

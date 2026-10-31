@@ -6,8 +6,11 @@
     --cor-fundo: #f4f7f9;
     --cor-superficie: #ffffff;
     --cor-texto: #26343d;
-    --cor-borda: #d7e0e5;
+    --cor-borda: #9eafb9;
     --cor-neutra: #e5eaed;
+    --cor-campo: #ffffff;
+    --cor-campo-desabilitado: #e7ecef;
+    --cor-placeholder: #62737d;
 }
 
 [data-bs-theme="dark"] {
@@ -75,6 +78,29 @@ body {
 .btn-theme:hover {
     background-color: var(--cor-principal);
     color: #ffffff;
+}
+
+[data-bs-theme="light"] label {
+    font-weight: 600;
+}
+
+[data-bs-theme="light"] .form-control,
+[data-bs-theme="light"] .form-select {
+    background-color: var(--cor-campo);
+    color: var(--cor-texto);
+    border-color: var(--cor-borda);
+}
+
+[data-bs-theme="light"] .form-control::placeholder {
+    color: var(--cor-placeholder);
+    opacity: 1;
+}
+
+[data-bs-theme="light"] .form-control:disabled {
+    background-color: var(--cor-campo-desabilitado);
+    color: var(--cor-texto);
+    border-color: var(--cor-borda);
+    opacity: 1;
 }
 
 .form-control:focus {

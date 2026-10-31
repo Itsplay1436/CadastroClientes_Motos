@@ -41,7 +41,7 @@ function find($table = null, $id = null)
                 $found = $result->fetch_assoc();
             }
         } else {
-            $sql = "SELECT * FROM $table";
+            $sql = "SELECT * FROM $table ORDER BY id ASC";
             $result = $database->query($sql);
 
             if ($result->num_rows > 0) {
