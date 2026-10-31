@@ -104,7 +104,13 @@ function mascaraCelular(campo) {
 }
 
 function mascaraIe(campo) {
-    campo.value = somenteNumeros(campo.value).substring(0, 15);
+    var valor = somenteNumeros(campo.value).substring(0, 12);
+
+    valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+    valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+    valor = valor.replace(/(\d{3})(\d)/, '$1.$2');
+
+    campo.value = valor;
 }
 
 var cpfCnpj = document.getElementById('cpf_cnpj');

@@ -16,23 +16,23 @@ edit();
     <div class="row">
         <div class="form-group col-md-5">
             <label for="modelo">Modelo</label>
-            <input type="text" class="form-control" id="modelo" name="moto[modelo]" maxlength="50" required value="<?php echo $moto['modelo']; ?>">
+            <input type="text" class="form-control" id="modelo" name="moto[modelo]" maxlength="50" required value="<?php echo $moto['modelo']; ?>" placeholder="Biz 100">
         </div>
 
         <div class="form-group col-md-3">
             <label for="marca">Marca</label>
-            <input type="text" class="form-control" id="marca" name="moto[marca]" maxlength="30" required value="<?php echo $moto['marca']; ?>">
+            <input type="text" class="form-control" id="marca" name="moto[marca]" maxlength="30" required value="<?php echo $moto['marca']; ?>" placeholder="Honda">
         </div>
 
         <div class="form-group col-md-2">
             <label for="motor">Motor</label>
-            <input type="text" class="form-control" id="motor" name="moto[motor]" maxlength="20" required value="<?php echo $moto['motor']; ?>">
+            <input type="text" class="form-control" id="motor" name="moto[motor]" maxlength="20" required value="<?php echo $moto['motor']; ?>" placeholder="100cc">
         </div>
 
         <div class="form-group col-md-2">
             <label for="placa">Placa</label>
             <input type="text" class="form-control" id="placa" name="moto[placa]" minlength="7" maxlength="7"
-                pattern="[A-Za-z]{3}[A-Za-z0-9]{4}" title="Digite os 7 caracteres da placa, sem espaço ou hífen." value="<?php echo $moto['placa']; ?>" required>
+                pattern="[A-Za-z]{3}[A-Za-z0-9]{4}" title="Digite os 7 caracteres da placa, sem espaço ou hífen." value="<?php echo $moto['placa']; ?>" required placeholder="ABC1D23">
         </div>
     </div>
 

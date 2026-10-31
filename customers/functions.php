@@ -77,6 +77,23 @@ function formatacep($valor)
 }
 
 /**
+ * Formata Inscrição Estadual
+ */
+function formataie($valor)
+{
+    $valor = preg_replace('/[^0-9]/', '', $valor);
+
+    if (strlen($valor) == 12) {
+        return substr($valor, 0, 3) . '.' .
+               substr($valor, 3, 3) . '.' .
+               substr($valor, 6, 3) . '.' .
+               substr($valor, 9, 3);
+    }
+
+    return $valor;
+}
+
+/**
  *  Listagem de Clientes
  */
 function index()

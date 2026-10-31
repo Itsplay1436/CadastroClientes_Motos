@@ -52,7 +52,7 @@ include HEADER_TEMPLATE;
     <dd><?php echo formatatelefone($customer['mobile']); ?></dd>
 
     <dt>Inscrição Estadual:</dt>
-    <dd><?php echo $customer['ie']; ?></dd>
+    <dd><?php echo formataie($customer['ie']); ?></dd>
 </dl>
 
 <div id="actions" class="row">

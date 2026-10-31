@@ -8,7 +8,6 @@
 
 <script src="<?php echo BASEURL; ?>js/jquery-4.0.0.js"></script>
 <script src="<?php echo BASEURL; ?>js/bootstrap.bundle.min.js"></script>
-<script src="<?php echo BASEURL; ?>js/all.min.js"></script>
 <script src="<?php echo BASEURL; ?>js/main.js"></script>
 </body>
 
