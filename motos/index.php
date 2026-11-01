@@ -8,7 +8,7 @@ include HEADER_TEMPLATE;
     <div class="row">
         <div class="col-sm-6"><h2>Motos</h2></div>
         <div class="col-sm-6 text-end h2">
-            <a class="btn btn-secondary" href="add.php"><i class="fa-solid fa-motorcycle"></i> Nova Moto</a>
+            <a class="btn btn-secondary" href="add.php"><i class="fa-solid fa-plus"></i> Nova Moto</a>
             <a class="btn btn-light" href="index.php"><i class="fa-solid fa-refresh"></i> Atualizar</a>
         </div>
     </div>
@@ -60,8 +60,7 @@ include HEADER_TEMPLATE;
                     <td class="actions text-end">
                         <a href="view.php?id=<?php echo $moto['id']; ?>" class="btn btn-sm btn-light"><i class="fa-solid fa-eye"></i> Visualizar</a>
                         <a href="edit.php?id=<?php echo $moto['id']; ?>" class="btn btn-sm btn-secondary"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
-                        <a href="#"class="btn btn-sm btn-dark"data-bs-toggle="modal"data-bs-target="#delete-modal"
-                            data-id="<?php echo $moto['id']; ?>">
+                        <a href="#" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#delete-modal" data-id="<?php echo $moto['id']; ?>" data-tipo="moto" data-nome="<?php echo htmlspecialchars($moto['modelo'], ENT_QUOTES, 'UTF-8'); ?>">
                             <i class="fa-solid fa-trash-can"></i> Excluir
                         </a>
                     </td>

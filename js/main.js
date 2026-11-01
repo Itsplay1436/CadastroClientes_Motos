@@ -1,30 +1,46 @@
 /**
- * Passa os dados do cliente para o Modal, e atualiza o link para exclusão
+ * Passa os dados do registro para o Modal de exclusão
  */
 $('#delete-modal').on('show.bs.modal', function (event) {
+
     var button = event.relatedTarget;
     var modal = $(this);
 
     var id = button.getAttribute('data-id');
-    var customer = button.getAttribute('data-customer');
+    var tipo = button.getAttribute('data-tipo');
+    var nome = button.getAttribute('data-nome');
 
-    //Os cadastros de motos não estavam funcionando...
-    //console.log('MAIN.JS NOVO CARREGADO');
-    //console.log('Botão:', button);
-    //console.log('ID:', id);
-    //console.log('Cliente:', customer);
+    if (tipo == 'cliente') {
 
-    if (id) {
-        modal.find('.modal-title').text('Excluir Moto #' + id);
-        modal.find('.modal-body').text('Deseja realmente excluir esta moto?');
-        modal.find('#confirm').attr('href', 'delete.php?id=' + id);
+        modal.find('.modal-title').text('Excluir Cliente');
+
+        modal.find('.modal-body').text(
+            'Deseja realmente excluir o cliente ' + nome + '?'
+        );
+
+    } else if (tipo == 'moto') {
+
+        modal.find('.modal-title').text('Excluir Moto');
+
+        modal.find('.modal-body').text(
+            'Deseja realmente excluir a moto ' + nome + '?'
+        );
+
+    } else if (tipo == 'usuario') {
+
+        modal.find('.modal-title').text('Excluir Usuário');
+
+        modal.find('.modal-body').text(
+            'Deseja realmente excluir o usuário ' + nome + '?'
+        );
+
     }
 
-    if (customer) {
-        modal.find('.modal-title').text('Excluir Cliente #' + customer);
-        modal.find('.modal-body').text('Deseja realmente excluir este cliente?');
-        modal.find('#confirm').attr('href', 'delete.php?id=' + customer);
-    }
+    modal.find('#confirm').attr(
+        'href',
+        'delete.php?id=' + id
+    );
+
 });
 
 /**
@@ -183,4 +199,59 @@ if (foto && previewFoto) {
             previewFoto.src = URL.createObjectURL(this.files[0]);
         }
     });
+}
+
+/**
+ * Preview da foto do usuário
+ */
+var fotoUsuario = document.getElementById('fotoUsuario');
+var previewUsuario = document.getElementById('previewUsuario');
+
+if (fotoUsuario && previewUsuario) {
+
+    fotoUsuario.addEventListener('change', function () {
+
+        if (this.files && this.files[0]) {
+            previewUsuario.src = URL.createObjectURL(this.files[0]);
+        }
+
+    });
+}
+
+
+/**
+ * Confirmação da senha do usuário
+ */
+var senhaUsuario = document.getElementById('senhaUsuario');
+var confirmarSenhaUsuario = document.getElementById('confirmarSenhaUsuario');
+
+function validarSenhasUsuario()
+{
+    if (senhaUsuario && confirmarSenhaUsuario) {
+
+        if (
+            confirmarSenhaUsuario.value != '' &&
+            senhaUsuario.value != confirmarSenhaUsuario.value
+        ) {
+
+            confirmarSenhaUsuario.setCustomValidity(
+                'As senhas não coincidem.'
+            );
+
+        } else {
+
+            confirmarSenhaUsuario.setCustomValidity('');
+
+        }
+    }
+}
+
+if (senhaUsuario && confirmarSenhaUsuario) {
+
+    senhaUsuario.addEventListener('input', validarSenhasUsuario);
+
+    confirmarSenhaUsuario.addEventListener(
+        'input',
+        validarSenhasUsuario
+    );
 }

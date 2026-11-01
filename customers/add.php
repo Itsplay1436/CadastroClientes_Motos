@@ -74,8 +74,8 @@ add();
 
     <div id="actions" class="row mt-3">
         <div class="col-md-12">
-            <button type="submit" class="btn btn-secondary">Salvar</button>
-            <a href="index.php" class="btn btn-light">Cancelar</a>
+            <button type="submit" class="btn btn-secondary"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>
+            <a href="index.php" class="btn btn-light"><i class="fa-regular fa-circle-xmark"></i> Cancelar</a>
         </div>
     </div>
 </form>

@@ -8,30 +8,76 @@ include HEADER_TEMPLATE;
 <hr>
 <div class="card">
     <div class="card-body">
-        <dl class="row mb-3">
-            <dt class="col-sm-3">Modelo:</dt><dd class="col-sm-9"><?php echo $moto['modelo']; ?></dd>
-            <dt class="col-sm-3">Marca:</dt><dd class="col-sm-9"><?php echo $moto['marca']; ?></dd>
-            <dt class="col-sm-3">Motor:</dt><dd class="col-sm-9"><?php echo $moto['motor']; ?></dd>
-            <dt class="col-sm-3">Placa:</dt><dd class="col-sm-9"><?php echo strtoupper($moto['placa']); ?></dd>
-            <dt class="col-sm-3">Data de Cadastro:</dt><dd class="col-sm-9"><?php echo formatadata($moto['datacad'], 'd/m/Y - H:i:s'); ?></dd>
-            <dt class="col-sm-3">Foto:</dt>
-            <dd class="col-sm-9">
-                <?php if (!empty($moto['foto']) && file_exists("uploads/" . $moto['foto'])): ?>
-                    <img src="uploads/<?php echo $moto['foto']; ?>"
-                        alt="Foto da moto"
+        <div class="row">
+
+            <div class="col-md-7">
+
+                <h5 class="mb-3">Dados da Moto</h5>
+
+                <dl class="row">
+
+                    <dt class="col-sm-3">ID:</dt>
+                    <dd class="col-sm-9">
+                        <?php echo $moto['id']; ?>
+                    </dd>
+
+                    <dt class="col-sm-3">Modelo:</dt>
+                    <dd class="col-sm-9">
+                        <?php echo $moto['modelo']; ?>
+                    </dd>
+
+                    <dt class="col-sm-3">Marca:</dt>
+                    <dd class="col-sm-9">
+                        <?php echo $moto['marca']; ?>
+                    </dd>
+
+                    <dt class="col-sm-3">Motor:</dt>
+                    <dd class="col-sm-9">
+                        <?php echo $moto['motor']; ?>
+                    </dd>
+
+                    <dt class="col-sm-3">Placa:</dt>
+                    <dd class="col-sm-9">
+                        <?php echo strtoupper($moto['placa']); ?>
+                    </dd>
+
+                    <dt class="col-sm-3">Data de Cadastro:</dt>
+                    <dd class="col-sm-9">
+                        <?php echo formatadata($moto['datacad'], 'd/m/Y - H:i:s'); ?>
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="col-md-5">
+
+                <h5 class="mb-3">Foto</h5>
+
+                <?php if (
+                    !empty($moto['foto']) &&
+                    file_exists("uploads/" . $moto['foto'])
+                ): ?>
+
+                    <img src="uploads/<?php echo $moto['foto']; ?>" alt="Foto da moto"
                         style="width: 400px; height: 300px; object-fit: cover;">
+
                 <?php else: ?>
-                    <img src="img/sem-foto.jpg"
-                        alt="Sem foto"
-                        style="width: 400px; height: 300px; object-fit: cover;">
+
+                    <img src="img/sem-foto.jpg" alt="Sem foto" style="width: 400px; height: 300px; object-fit: cover;">
+
                 <?php endif; ?>
-            </dd>
-        </dl>
+
+            </div>
+
+        </div>
+
     </div>
 </div>
 <div id="actions" class="row mt-3">
     <div class="col-md-12">
-        <a href="edit.php?id=<?php echo $moto['id']; ?>" class="btn btn-secondary"><i class="fa-solid fa-pen-to-square"></i> Editar</a>
+        <a href="edit.php?id=<?php echo $moto['id']; ?>" class="btn btn-secondary"><i
+                class="fa-solid fa-pen-to-square"></i> Editar</a>
         <a href="index.php" class="btn btn-light"><i class="fa-solid fa-arrow-rotate-left"></i> Voltar</a>
     </div>
 </div>

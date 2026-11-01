@@ -56,8 +56,7 @@ include HEADER_TEMPLATE;
                         <a href="edit.php?id=<?php echo $customer['id']; ?>" class="btn btn-sm btn-secondary">
                             <i class="fa-solid fa-pen-to-square"></i> Editar
                         </a>
-                        <a href="#" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#delete-modal"
-                            data-customer="<?php echo $customer['id']; ?>">
+                        <a href="#" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#delete-modal" data-id="<?php echo $customer['id']; ?>" data-tipo="cliente" data-nome="<?php echo htmlspecialchars($customer['name'], ENT_QUOTES, 'UTF-8'); ?>">
                             <i class="fa-solid fa-trash-can"></i> Excluir
                         </a>
                     </td>
